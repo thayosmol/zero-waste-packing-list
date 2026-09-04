@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Ultimate Zero-Waste Packing List</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="container nav-container">
+            <h1 class="logo">EcoPack</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="packing-list.html" class="active">Packing List</a></li>
+                    <li><a href="toiletries.html">Toiletries</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container main-content">
+        <section class="card" id="packing-container">
+            <h2>The Ultimate Zero-Waste Packing List</h2>
+            <p class="subtitle">Click the items to check them off as you pack your bags!</p>
+            
+            <div class="checklist-section">
+                <h4>1. Hydration & Dining</h4>
+                <div class="checklist-item"><input type="checkbox"><span>Insulated stainless steel water bottle</span></div>
+                <div class="checklist-item"><input type="checkbox"><span>Reusable metal or bamboo cutlery set with a straw</span></div>
+                <div class="checklist-item"><input type="checkbox"><span>Packable cloth shopping bag or lightweight backpack</span></div>
+                <div class="checklist-item"><input type="checkbox"><span>Collapsible silicone food container for travel snacks</span></div>
+
+                <h4>2. Clothing & Accessories</h4>
+                <div class="checklist-item"><input type="checkbox"><span>Quick-dry microfiber travel towel</span></div>
+                <div class="checklist-item"><input type="checkbox"><span>Capsule wardrobe made of natural, durable fibers</span></div>
+                <div class="checklist-item"><input type="checkbox"><span>Laundry soap bar for washing clothes in the sink</span></div>
+
+                <h4>3. Electronics & Miscellaneous</h4>
+                <div class="checklist-item"><input type="checkbox"><span>Reusable silicone cable ties</span></div>
+                <div class="checklist-item"><input type="checkbox"><span>Solar-powered portable power bank</span></div>
+            </div>
+
+            <!-- Action Button for Interactivity -->
+            <div class="action-bar">
+                <button id="copy-btn" class="btn">Copy List to Clipboard</button>
+                <span id="copy-status" class="copy-status">Copied successfully! ✓</span>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Zero-Waste Travel Packing. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Interactivity -->
+    <script>
+        // 1. Save checkbox states locally in the browser
+        const checkboxes = document.querySelectorAll('.checklist-item input[type="checkbox"]');
+        
+        checkboxes.forEach((box, index) => {
+            // Load saved state
+            const savedState = localStorage.getItem('checkbox_' + index);
+            if (savedState === 'true') {
+                box.checked = true;
+            }
+
+            // Save state on change
+            box.addEventListener('change', () => {
+                localStorage.setItem('checkbox_' + index, box.checked);
+            });
+        });
+
+        // 2. Copy list functionality
+        const copyBtn = document.getElementById('copy-btn');
+        const copyStatus = document.getElementById('copy-status');
+
+        copyBtn.addEventListener('click', () => {
+            let listText = "Zero-Waste Packing List:\n";
+            checkboxes.forEach((box) => {
+                const text = box.nextElementSibling.textContent;
+                const status = box.checked ? "[X]" : "[ ]";
+                listText += `${status} ${text}\n`;
+            });
+
+            navigator.clipboard.writeText(listText).then(() => {
+                copyStatus.classList.add('show');
+                setTimeout(() => {
+                    copyStatus.classList.remove('show');
+                }, 2000);
+            });
+        });
+    </script>
+
+</body>
+</html>

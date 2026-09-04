@@ -1,0 +1,237 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f4f7f4;
+}
+
+/* Container */
+.container {
+    width: 90%;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* Header & Nav */
+header {
+    background-color: rgb(56, 88, 109);
+    color: #fff;
+    padding: 1rem 0;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 1.5rem;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(#5cb3e6cc, rgba(33, 126, 247, 0.8)), url('https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover;
+    color: #fff;
+    text-align: center;
+    padding: 5rem 1rem;
+}
+
+.la{
+    width: 50%;
+    height: 50%;
+   position: absolute;
+   top:10px;
+   right:700px;
+    background-size: 100%;
+    width:40%;
+    height: 40%;
+     z-index: -999;
+     opacity: 50%;
+     size: 150%;
+}
+
+.hero-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+button {
+    background: #e0a96d;
+    color: #fff;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.3s ease;
+}
+
+button:hover {
+    background: #c89358;
+}
+
+/* Main Content Layout */
+.main-content {
+    padding: 3rem 0;
+    display: grid;
+    gap: 2rem;
+}
+
+.card {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.card h3 {
+    color: rgb(56, 88, 109);
+    margin-bottom: 0.05rem;
+    padding-top: 1.5rem;
+}
+
+.card ul {
+    margin-top: 1rem;
+    padding-left: 1.5rem;
+}
+
+.card li {
+    margin-bottom: 0.5rem;
+}
+
+/* Footer */
+footer {
+    background: #2b3fec3f;
+    color: #fff;
+    text-align: center;
+    padding: 1.5rem 0;
+    margin-top: 2rem;
+}
+.subtitle {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 1.5rem;
+}
+
+nav a.active {
+    border-bottom: 2px solid #e0a96d;
+    padding-bottom: 2px;
+}
+
+.checklist-section h4 {
+    color: rgb(56, 88, 109);
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.toiletry-item {
+    margin-bottom: 1.5rem;
+}
+
+.toiletry-item h3 {
+    font-size: 1.2rem;
+    color: rgb(56, 88, 109);
+    margin-bottom: 0.25rem;
+}
+.checklist-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.5rem 0;
+    cursor: pointer;
+    user-select: none;
+    transition: color 0.2s ease;
+}
+.checklist-item input[type="checkbox"] :hover{
+transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+
+    background-color: #c89358;
+
+}
+.checklist-item input[type="checkbox"] {
+    width: 1.2rem;
+    height: 1.2rem;
+    cursor: pointer;
+    color: rgb(56, 88, 109);
+}
+
+/* Strikethrough effect when checked */
+.checklist-item input[type="checkbox"]:checked + span {
+    text-decoration: line-through;
+    color: #8ee5ff;
+    transform: translateY(-6px);
+    
+}
+
+/* Interactive Card & Button Hover Enhancements */
+.card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+   
+}
+
+
+
+.button {
+    cursor: pointer;
+    border: none;
+    display: inline-block;
+    transition: 0.3s ease, transform 0.1s ease;
+}
+
+.button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 9px 15px rgba(255, 0, 0, 0.05)
+}
+
+.btn:active {
+    transform: scale(0.98);
+}
+
+/* Action Button Container */
+.action-bar {
+    margin-top: 1.5rem;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.copy-status {
+    font-size: 0.9rem;
+    color: rgb(56, 88, 109);
+    font-weight: bold;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.copy-status.show {
+    opacity: 1;
+}
